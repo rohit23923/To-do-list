@@ -39,27 +39,27 @@ const ListMain = () => {
     console.log("tasks=>",tasks);
     return (
         <>
-            <div  >
-                <div className='flex justify-center w-full'>
-                    <input type='text' placeholder='Add task' className='text-2xl border-zinc-800 border-2 m-5 px-4 py-2'
+            <div>
+                <div className='flex justify-center lg:w-full'>
+                    <input type='text' placeholder='Add task' className='lg:text-2xl border-zinc-800 border-2 m-5 px-4 py-2'
                         value={task}
                         onChange={(e) => {
                             settask(e.target.value)
                         }}
                     />
-                    <button onClick={btntext=="ADD TASK" ?submitHandle:updateTask} className='bg-green-700 text-white px-4 py-3 text-2xl font-bold rounded m-5'>{btntext}</button>
+                    <button onClick={btntext=="ADD TASK" ?submitHandle:updateTask} className='bg-green-700 text-white px-4 py-3 lg:text-2xl font-bold rounded m-5'>{btntext}</button>
               
                  </div>
 
             </div>
 
-            <div className='bg-slate-200 p-8'>
+            <div className='bg-slate-200 lg:p-8 md:p-2 '>
 
                 {
                     tasks && tasks.map((item, i) => {
                         return (
-                            <li key={i} className='flex items-center justify-between'>
-                                <div className='mb-5 w-full border-black border-b'>{item.task}</div>
+                            <li key={i} className='flex justify-around lg:items-center lg:justify-between'>
+                                <div className='w-60 h-6 lg:w-full border-black border-b'>{item.task}</div>
                                 <button onClick={() => {
                                     deleteTask(i)
                                 }} className='bg-red-400 text-white px-4 py-2 rounded mb-10 mr-2 ml-2'>Delete</button>
