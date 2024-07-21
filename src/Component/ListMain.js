@@ -29,31 +29,30 @@ const ListMain = () => {
     }
 
     const updateTask=()=>{
-        console.log("idx",show.idx);
         let copyTask = [...tasks]
         copyTask.splice(show.idx,1,{task})
         settasks(copyTask) 
-        console.log("copy=>",copyTask);
+        settask("");
         setBtntext("ADD TASK")
     }
     console.log("tasks=>",tasks);
     return (
         <>
-            <div>
-                <div className='flex justify-center lg:w-full'>
-                    <input type='text' placeholder='Add task' className='lg:text-2xl border-zinc-800 border-2 m-5 px-4 py-2'
+            <div className='m-2'>
+                <div className='flex justify-center w-full'>
+                    <input type='text' placeholder='Add task' className='lg:text-2xl border-zinc-800 border-2 m-4  px-2'
                         value={task}
                         onChange={(e) => {
                             settask(e.target.value)
                         }}
                     />
-                    <button onClick={btntext=="ADD TASK" ?submitHandle:updateTask} className='bg-green-700 text-white px-4 py-3 lg:text-2xl font-bold rounded m-5'>{btntext}</button>
+                    <button onClick={btntext=="ADD TASK" ?submitHandle:updateTask} className='bg-green-700 text-white p-2 lg:text-2xl font-bold rounded '>{btntext}</button>
               
                  </div>
 
             </div>
 
-            <div className='bg-slate-200 lg:p-8 md:p-2 '>
+            <div className='bg-slate-200 p-2 lg:p-8'>
 
                 {
                     tasks && tasks.map((item, i) => {
@@ -62,11 +61,11 @@ const ListMain = () => {
                                 <div className='w-60 h-6 lg:w-full border-black border-b'>{item.task}</div>
                                 <button onClick={() => {
                                     deleteTask(i)
-                                }} className='bg-red-400 text-white px-4 py-2 rounded mb-10 mr-2 ml-2'>Delete</button>
+                                }} className='bg-red-400 text-white px-4 py-2 rounded mb-2 mr-2 ml-2'>Delete</button>
 
                                 <button onClick={()=>{
                                     editTask(i)
-                                }} className='bg-green-400 text-white px-4 py-2 rounded mb-10'>Edit</button>
+                                }} className='bg-green-400 text-white px-4 py-2 rounded mb-2'>Edit</button>
                             </li>
 
                         )
